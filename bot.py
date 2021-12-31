@@ -3,12 +3,17 @@ import random
 from datetime import date
 from datetime import datetime
 import time
+from discord import channel
+from discord import member
 from discord.enums import Status	
 import discord.ext
 from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
 
+from discord.role import Role
+
+git = "https://github.com/ian4u/bot-public/tree/main"
 bot = commands.Bot(command_prefix="+")
 Admin = "IAN#2241"
 client = discord.Client()
@@ -22,9 +27,8 @@ bot_status = "Can be used"
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-    print("Prefix is set to == " + prefix + " ==")
-    print("Status is set to : " + bot_status + ".")
-    print()
+
+
 
 
 @client.event #botV2
@@ -35,7 +39,15 @@ async def on_message(message):
    
     if message.content.startswith(prefix):
         print("Bot found a command symbole")
+        print(message.content)
+        print("The commad was ended successful")
         print()
+
+    if message.content.startswith(prefix + "cmd"):
+        print(inp + "cmd")
+        await message.channel.send("all cmds start with (+) == 1.rdinfo == 2.cmd (this tool) == 3.rddiscord == 4.rddcgift == 5.chance == 6.online == 7.invite == 8.github ==")
+        print(asw + "all cmds start with (+) == 1.rdinfo == 2.cmd (this tool) == 3.rddiscord == 4.rddcgift == 5.chance == 6.online == 7.invite == 8.github ==")
+        print() 
     
     if message.content.startswith(prefix + "token"):
         print(inp + "token")
@@ -54,12 +66,6 @@ async def on_message(message):
         print(inp + "cmd")
         await message.channel.send("all cmds start with (+) == 1.start == 2.hackerbot == 3.rddiscord == 4.cmd == 5.admin == 7.online == 8.invite == 9.rddcgift == 10.rdinfo ==")
         print(asw + "all cmds start with (+) == 1.start == 2.rddiscord == 3.cmd == 4.admin == 5.online == 6.invite == 7.rddcgift == 8.rdinfo ==")
-        print()
-
-    if message.content.startswith(prefix + 'start'):
-        print(inp + "start")
-        await message.channel.send('ONLINE NOW ' + now.strftime("%d/%m/%Y %H:%M:%S"))
-        print(asw + "ONLINE NOW + time")
         print()
 
     if message.content.startswith(prefix + "rddiscord"):
@@ -104,3 +110,21 @@ async def on_message(message):
         await message.channel.send("The invite link is | https://discord.com/api/oauth2/authorize?client_id=916653706966085663&permissions=8&scope=bot |")
         print(asw + "The invite link is | https://discord.com/api/oauth2/authorize?client_id=916653706966085663&permissions=8&scope=bot |")
         print()
+
+    if message.content.startswith(prefix + "github"):
+       await message.channel.send("The public link from my bot is : " + git)
+
+    if message.content.startswith(prefix + "testoutput"):
+        if str(message.author) == str(Admin):
+            await message.channel.send(str(message.author))
+            await message.channel.send("Has send Command: " + message.content)
+            await message.channel.send("Bot is login as: " + str(client.user))
+
+    if message.content.startswith(""):
+        if message.author == client.user:
+            return
+        if str(message.author) == str("Ianshub#7786"):
+            return
+        else:
+            channel = client.get_channel(926490522166652969)
+            await channel.send(str(message.author) + " did send: " + str(message.content))
