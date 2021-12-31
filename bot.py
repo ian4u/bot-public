@@ -62,11 +62,6 @@ async def on_message(message):
         await message.channel.send("These codes are just for testgin perpus only if u use them against the discord tos you have to think about the following ")
         print(asw + "These codes are just for testgin perpus only if u use them against the discord tos you have to think about the following")
 
-    if message.content.startswith(prefix + "cmd"):
-        print(inp + "cmd")
-        await message.channel.send("all cmds start with (+) == 1.start == 2.hackerbot == 3.rddiscord == 4.cmd == 5.admin == 7.online == 8.invite == 9.rddcgift == 10.rdinfo ==")
-        print(asw + "all cmds start with (+) == 1.start == 2.rddiscord == 3.cmd == 4.admin == 5.online == 6.invite == 7.rddcgift == 8.rdinfo ==")
-        print()
 
     if message.content.startswith(prefix + "rddiscord"):
         print(inp + "rddiscord")
